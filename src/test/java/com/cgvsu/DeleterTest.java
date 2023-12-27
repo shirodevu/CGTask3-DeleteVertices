@@ -25,19 +25,12 @@ class DeleterTest {
         String fileContent = Files.readString(fileName);
 
         Model model = ObjReader.read(fileContent);
-
-        /*for (int i = model.polygons.size() - 1; i >= 0; i--) {
-            Polygon polygon = model.polygons.get(i);
-
-        }*/
-
         List<Integer> verticesDelete = new ArrayList<>(Arrays.asList(1, 2));
 
         Model updatedModel = Deleter.removeVerticesFromModel(model.clone(), verticesDelete);
         Assertions.assertNotEquals(model, updatedModel);
 
 
-      //  System.out.println(new Vector3f(666f,1488f,0f));
     }
 
     @Test
@@ -55,7 +48,6 @@ class DeleterTest {
         Model updatedModel = Deleter.removeVerticesFromModel(model.clone(), verticesDelete);
         updatedModel.vertices.forEach(System.out::println);
 
-        // List<Integer> =
         List<Vector3f> expectedVertices = new ArrayList<>();
         expectedVertices.add(new Vector3f(0f,0f,0f));
         expectedVertices.add(new Vector3f(0f,1f,1f));
@@ -92,7 +84,6 @@ class DeleterTest {
         Model updatedModel = Deleter.removeVerticesFromModel(model.clone(), verticesDelete);
         updatedModel.vertices.forEach(System.out::println);
 
-        // List<Integer> =
         List<Vector3f> expectedVertices = new ArrayList<>();
         expectedVertices.add(new Vector3f(1f,0f,0f));
         expectedVertices.add(new Vector3f(2f,0f,0f));
@@ -102,7 +93,6 @@ class DeleterTest {
         expectedVertices.add(new Vector3f(0f,1f,0f));
         expectedVertices.add(new Vector3f(1f,1f,0f));
         expectedVertices.add(new Vector3f(1.5f,0.5f,1f));
-
 
 
         expectedVertices.forEach(System.out::println);

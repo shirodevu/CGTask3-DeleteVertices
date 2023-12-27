@@ -15,7 +15,7 @@ public class Main {
     public static final String RESOURCES_DIRECTORY = "src/main/resources/";
 
     public static void main(String[] args) throws IOException {
-        Path fileName = Path.of(RESOURCES_DIRECTORY + "WrapHead.obj");
+        Path fileName = Path.of(RESOURCES_DIRECTORY + "Test04Deleted234.obj");
         String fileContent = Files.readString(fileName);
 
         System.out.println("Loading model ...");
@@ -47,6 +47,6 @@ public class Main {
         
         Model modelRes = Deleter.getModelWithDeletedVertices(model, verticesToDelete);
 
-        ObjWriter.write(modelRes, RESOURCES_DIRECTORY + "output.obj");
+        ObjWriter.write(modelRes, RESOURCES_DIRECTORY + "outputTest04.obj");
     }
 }

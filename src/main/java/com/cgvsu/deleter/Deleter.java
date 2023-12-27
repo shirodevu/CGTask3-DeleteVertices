@@ -75,7 +75,6 @@ public class Deleter {
 
 	/**
 	 * Метод для смещения индексов в полигоне после удаления соответствующих вершин.
-
 	 * */
 	private static void shiftIndicesInPolygons(List<Polygon> modelPolygons,
 	                                           List<Integer> vertexIndicesToDelete) {
@@ -85,9 +84,8 @@ public class Deleter {
 			// Список новых вершинных индексов
 			List<Integer> newVertexIndices = new ArrayList<>();
 			for (int polygonVertexIndex : polygon.getVertexIndices()) {
-				// Смещение в отрицательную сторону равно число вершинных индексов на удаление,
-				// больше которых вершинный индекс полигона.
-				int offset = countLessThan(polygonVertexIndex + 1, sortedVertexIndicesToDelete);
+				// Смещение в отрицательную сторону == число вершинных индексов на удаление, больше которых вершинный индекс полигона.
+				int offset = countLessThan(polygonVertexIndex, sortedVertexIndicesToDelete);
 				// Добавляем вершину с отрицательным смещением
 				newVertexIndices.add(polygonVertexIndex - offset);
 			}
